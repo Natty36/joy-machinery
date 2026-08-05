@@ -5,11 +5,12 @@
 @layer base {
   :root {
     /* Colors */
+    /* --color-accent: #EE6B2C; */
     --color-accent: #113a72;
     --color-accent-hover: #d85f27;
     --color-dark: #141313;
-    --color-light: #f1f7ed;
-    --color-logo: #4c4c4c;
+    --color-light: #F1F7ED;
+    --color-logo: #4C4C4C;
 
     /* Spacing */
     --spacing-section: 6rem;
