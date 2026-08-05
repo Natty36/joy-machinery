@@ -1,0 +1,118 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const cards = [
+  "Skipping professional ground sampling.",
+  "Installing uncalibrated equipment.",
+  "Running pumps that overheat or waste fuel.",
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+export default function Problem() {
+  return (
+    <section
+      className="bg-section-dark overflow-hidden"
+      style={{ paddingTop: "var(--spacing-section)", paddingBottom: "var(--spacing-section)" }}
+    >
+      <div className="mx-auto max-w-6xl px-6 md:px-12">
+        {/* Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h2
+            className="text-h1 headline max-w-3xl"
+            style={{ color: "var(--color-light)" }}
+          >
+            Most losses happen before extraction starts
+          </h2>
+
+          <p
+            className="text-body mt-6 max-w-2xl"
+            style={{ color: "var(--color-light)", opacity: 0.85 }}
+          >
+            Gold mining operations regularly cap their own output. The problem is
+            not the land. It is preparation.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <motion.div
+          className="mt-14 grid gap-6 md:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {cards.map((text, i) => (
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              className="relative p-6 md:p-8"
+              style={{
+                backgroundColor: "rgba(241, 247, 237, 0.04)",
+                borderLeft: "2px solid var(--color-accent)",
+              }}
+            >
+              <p
+                className="text-body-sm font-headline font-medium"
+                style={{ color: "var(--color-light)", lineHeight: 1.6 }}
+              >
+                {text}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Impact paragraph */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-14 max-w-3xl"
+        >
+          <p
+            className="text-body"
+            style={{ color: "var(--color-light)", opacity: 0.85 }}
+          >
+            These are not small inefficiencies. A 10-degree slope error on a
+            gold washing machine cuts recovery by 50%. A single mechanical fault
+            during active work costs hundreds of thousands of birr per day.
+            These losses are invisible during setup, but they define whether
+            your operation survives.
+          </p>
+
+          <p
+            className="text-h4 font-headline mt-8"
+            style={{ color: "var(--color-light)" }}
+          >
+            When you start without the right study and without equipment built
+            to specification, you are not running at capacity. You are burning
+            capital.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
