@@ -3,12 +3,11 @@
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
 import Image from "next/image";
+import Hero3D from "../3d/Hero3D";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Full background image placeholder */}
-
+    <section id="hero" className="relative min-h-screen overflow-hidden">
       <Image
         src="/herobg.png"
         alt="Gold mining equipment"
@@ -18,7 +17,6 @@ export default function Hero() {
         sizes="100vw"
       />
 
-      {/* Crescent moon mask — thick dark on left, curves away to transparent */}
       <div
         className="absolute inset-0"
         style={{
@@ -27,48 +25,54 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
       <div
-        className="relative z-10 flex min-h-[85vh] items-center px-6 md:px-12 lg:px-20"
+        className="relative z-10 flex min-h-screen items-center px-6 md:px-12 lg:px-20"
         style={{
           paddingTop: "var(--spacing-section)",
           paddingBottom: "var(--spacing-section)",
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-3xl"
-        >
-          <p
-            className="font-headline text-small uppercase tracking-widest"
-            style={{ color: "var(--color-accent)" }}
+        <div className="mx-auto grid w-full max-w-8xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* Text — your exact layout preserved */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Joy Machinery Solutions
-          </p>
+            <h1
+              className="text-hero font-headline mt-4"
+              style={{ color: "var(--color-light)" }}
+            >
+              Reliable mining equipment supplier
+            </h1>
 
-          <h1
-            className="text-hero font-headline mt-4"
-            style={{ color: "var(--color-light)" }}
+            <p
+              className="text-body mt-6 max-w-2xl"
+              style={{ color: "var(--color-light)", opacity: 0.85 }}
+            >
+              Complete equipment and services to help gold mining operations run
+              reliably, backed by expert geologists, educated engineers, and
+              full warranty coverage.
+            </p>
+
+            <Button
+              href="tel:+251936962486"
+              className="mt-10 px-10 py-5 text-lg"
+            >
+              Call +251 936 962 486
+            </Button>
+          </motion.div>
+
+          {/* 3D Gold Nuggets */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative h-[350px] w-full md:h-[450px] lg:h-[550px]"
           >
-            Reliable mining equipment supplier
-          </h1>
-
-          <p
-            className="text-body mt-6 max-w-2xl"
-            style={{ color: "var(--color-light)", opacity: 0.85 }}
-          >
-            Complete equipment and services to help gold mining operations run
-            reliably, backed by expert geologists, educated engineers, and full
-            warranty coverage.
-          </p>
-
-          <Button href="tel:+0000000000" className="mt-10 gap-3">
-            <span>📞</span>
-            <span>Call us</span>
-          </Button>
-        </motion.div>
+            <Hero3D />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

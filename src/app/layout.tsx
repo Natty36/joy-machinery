@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Inter, Menbere } from "next/font/google";
+import { Archivo_Black, DM_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "../../components/SmoothScroll";
+import Navbar from "../../components/Navbar";
 
-const inter = Inter({
+const archivoBlack = Archivo_Black({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: "400",
+  variable: "--font-headline",
   display: "swap",
 });
 
-const menbere = Menbere({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-menbere",
+  variable: "--font-body",
   display: "swap",
   weight: "variable",
-  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
-  title: "Your Site",
-  description: "Description here",
+  title: "Joy Machinery Solutions",
+  description: "Gold Mining Equipment & Geological Services",
 };
 
 export default function RootLayout({
@@ -28,8 +29,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${menbere.variable}`}>
+    <html lang="en" className={`${archivoBlack.variable} ${dmSans.variable}`}>
       <body>
+        <Navbar />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

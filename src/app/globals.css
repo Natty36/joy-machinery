@@ -9,8 +9,8 @@
     --color-accent: #113a72;
     --color-accent-hover: #d85f27;
     --color-dark: #141313;
-    --color-light: #F1F7ED;
-    --color-logo: #4C4C4C;
+    --color-light: #f1f7ed;
+    --color-logo: #4c4c4c;
 
     /* Spacing */
     --spacing-section: 6rem;
@@ -122,7 +122,7 @@
   }
 
   body {
-    font-family: var(--font-menbere), Georgia, serif;
+    font-family: var(--font-body), system-ui, sans-serif;
     color: var(--color-logo);
     background-color: var(--color-light);
     -webkit-font-smoothing: antialiased;
@@ -132,7 +132,7 @@
 
 @layer components {
   .font-headline {
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-headline), Impact, sans-serif;
   }
 
   .text-hero {
@@ -276,8 +276,8 @@
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
-    font-family: var(--font-inter), system-ui, sans-serif;
-    font-weight: 600;
+    font-family: var(--font-headline), Impact, sans-serif;
+    font-weight: 400; /* Archivo Black is already heavy */
     background-color: var(--color-accent);
     color: var(--color-light);
     transition: background-color 0.2s ease;
