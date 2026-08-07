@@ -20,7 +20,7 @@ export default function NuggetScene() {
         <pointLight position={[3, -2, 3]} intensity={0.5} color="#FFD700" />
 
         {/* SCALE BUMPED TO 10 — increase/decrease this number to resize */}
-        <GoldNugget scale={10} />
+        <GoldNugget scale={13} />
 
         <Environment preset="studio" />
       </Suspense>
