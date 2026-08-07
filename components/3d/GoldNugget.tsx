@@ -32,8 +32,8 @@ export default function GoldNugget({ scale = 1 }: Props) {
       const dx = e.offsetX - lastPos.current.x;
       const dy = e.offsetY - lastPos.current.y;
 
-      velocity.current.x = dx * 0.008; // horizontal → Y rotation
-      velocity.current.y = dy * 0.008; // vertical → X rotation
+      velocity.current.x = dx * 0.008;
+      velocity.current.y = dy * 0.008;
 
       lastPos.current = { x: e.offsetX, y: e.offsetY };
     };
@@ -55,19 +55,23 @@ export default function GoldNugget({ scale = 1 }: Props) {
     };
   }, [gl]);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (!groupRef.current) return;
 
     // Idle bob
     groupRef.current.position.y =
       Math.sin(state.clock.elapsedTime * 0.8) * 0.06;
 
-    // Apply spin + friction on both axes
+    // Auto spin (always on, frame-rate independent)
+    groupRef.current.rotation.y += 0.4 * delta;
+
+    // Drag momentum decay
     if (!isDragging.current) {
       velocity.current.x *= 0.96;
       velocity.current.y *= 0.96;
     }
 
+    // Apply drag on top of auto spin
     groupRef.current.rotation.y += velocity.current.x;
     groupRef.current.rotation.x += velocity.current.y;
   });

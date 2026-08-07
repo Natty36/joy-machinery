@@ -7,7 +7,7 @@ import Hero3D from "../3d/Hero3D";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden">
+    <section id="hero" className="relative min-h-[115vh] overflow-hidden">
       <Image
         src="/herobg.png"
         alt="Gold mining equipment"

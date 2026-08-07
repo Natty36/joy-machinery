@@ -40,48 +40,44 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-4 left-1/2 z-50 w-[calc(100%-1rem)] -translate-x-1/2 md:w-auto">
-        <div className="rounded-full border border-white/10 bg-neutral-950/90 px-4 py-2.5 shadow-2xl backdrop-blur-xl">
-          <div className="flex items-center gap-3 md:gap-6">
+        <div className="rounded-full border border-white/10 bg-neutral-950/90 px-3 py-1.5 shadow-2xl backdrop-blur-xl">
+          <div className="flex items-center gap-2 md:gap-20">
             <a
               href="#hero"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection("#hero");
               }}
-              className="flex items-center gap-3 whitespace-nowrap"
+              className="flex items-center whitespace-nowrap"
+              aria-label="Joy Machinery Solutions"
             >
-              <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-xl bg-white/5 ring-1 ring-white/15">
-                <Image
-                  src="/Logo.png"
-                  alt="Joy Machinery Solutions"
-                  width={32}
-                  height={32}
-                  className="h-full w-full object-contain"
-                  priority
-                />
-              </span>
-              <span className="text-base font-semibold tracking-tight text-white">
-                Joy Machinery
-              </span>
+              <Image
+                src="/Logo.png"
+                alt="Joy Machinery Solutions"
+                width={96}
+                height={72}
+                className="h-10 w-auto origin-left scale-[2.5] object-contain"
+                priority
+              />
             </a>
 
-            <div className="hidden items-center gap-6 md:flex md:gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(link.href);
-                  }}
-                  className="text-sm font-medium text-neutral-400 transition-colors hover:text-white"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+            <div className="hidden items-center gap-4 md:flex md:gap-9">
+              <div className="flex items-center gap-6 md:gap-8">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(link.href);
+                    }}
+                    className="text-sm font-medium text-neutral-400 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
 
-            <div className="hidden md:block">
               <a
                 href="#services"
                 onClick={(e) => {
