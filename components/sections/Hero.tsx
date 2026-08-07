@@ -52,12 +52,12 @@ export default function Hero() {
         alt="Gold mining equipment"
         fill
         priority
-        className="object-cover"
+        className="object-cover mt-2"
         sizes="100vw"
       />
 
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 mt-2"
         style={{
           background:
             "radial-gradient(ellipse 100% 150% at -10% 50%, rgba(20,19,19,0.98) 0%, rgba(20,19,19,0.85) 30%, rgba(20,19,19,0.5) 55%, transparent 80%)",
