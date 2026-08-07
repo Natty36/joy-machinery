@@ -32,8 +32,8 @@ export default function Hero() {
           paddingBottom: "var(--spacing-section)",
         }}
       >
-        <div className="mx-auto grid w-full max-w-8xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Text — your exact layout preserved */}
+        <div className="mx-auto grid w-full max-w-9xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* Text */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          {/* 3D Gold Nuggets */}
+          {/* 3D Nugget */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -73,6 +73,17 @@ export default function Hero() {
             <Hero3D />
           </motion.div>
         </div>
+      </div>
+      {/* S-shaped bottom cut */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="h-16 w-full md:h-24 lg:h-32"
+          style={{ fill: "var(--color-light)" }}
+        >
+          <path d="M0,20 C480,140 960,-20 1440,100 V120 H0 Z" />
+        </svg>
       </div>
     </section>
   );

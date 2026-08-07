@@ -130,6 +130,11 @@
   }
 }
 
+.clip-s-bottom {
+  clip-path: url(#hero-s-curve);
+  -webkit-clip-path: url(#hero-s-curve);
+}
+
 @layer components {
   .font-headline {
     font-family: var(--font-headline), Impact, sans-serif;
