@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Archivo_Black, DM_Sans } from "next/font/google";
+import { Archivo_Black, DM_Sans, Geist } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "../../components/SmoothScroll";
 import Navbar from "../../components/Navbar";
+import { cn } from "../../lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const archivoBlack = Archivo_Black({
   subsets: ["latin"],
@@ -29,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${archivoBlack.variable} ${dmSans.variable}`}>
+    <html lang="en" className={cn(archivoBlack.variable, dmSans.variable, "font-sans", geist.variable)}>
       <body>
         <Navbar />
         <SmoothScroll>{children}</SmoothScroll>

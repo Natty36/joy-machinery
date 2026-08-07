@@ -1,6 +1,36 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 /* Google Fonts loaded via next/font in layout.tsx, NOT here */
+
+
+@theme inline {
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite
+    alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+
+  @keyframes shimmer-slide {
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+    0% {
+      transform: translateZ(0) rotate(0);
+    }
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
+    }
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
+    }
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
+  }
+}
 
 @layer base {
   :root {
@@ -119,6 +149,7 @@
 
   html {
     scroll-behavior: auto;
+    @apply font-sans;
   }
 
   body {
@@ -128,12 +159,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  * {
+    border-color: color-mix(in srgb, var(--color-logo) 14%, transparent);
+    outline-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  }
 }
 
-.clip-s-bottom {
-  clip-path: url(#hero-s-curve);
-  -webkit-clip-path: url(#hero-s-curve);
-}
+
 
 @layer components {
   .font-headline {

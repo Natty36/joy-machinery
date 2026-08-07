@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Button from "../ui/Button";
 import Image from "next/image";
 import Hero3D from "../3d/Hero3D";
+import { ShimmerButton } from "../ui/shimmer-button";
 
 const socialLinks = [
   {
@@ -73,7 +73,7 @@ export default function Hero() {
       >
         <div className="mx-auto grid w-full max-w-9xl items-center gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-6">
           {/* Left: Social Bar + Text */}
-          <div className="flex items-center gap-6 lg:gap-6 lg:pl-2 xl:pl-6">
+          <div className="flex items-center gap-6 lg:gap-10 lg:pl-2 xl:pl-6 mt-15">
             {/* Vertical Social Bar */}
             <div className="hidden flex-col items-center gap-9 self-center lg:-ml-9 lg:flex">
               {socialLinks.map((link) => (
@@ -113,12 +113,16 @@ export default function Hero() {
                 and full warranty coverage.
               </p>
 
-              <Button
-                href="tel:+251936962486"
-                className="mt-10 px-10 py-5 text-lg"
+              <ShimmerButton 
+              background="#113a72"
+              onClick={() => {
+                  window.location.href = "tel:+251936962486";
+                }}
+                className="mt-10"
+                shimmerDuration="3s"
               >
                 Call +251 936 962 486
-              </Button>
+              </ShimmerButton>
             </motion.div>
           </div>
 

@@ -52,8 +52,8 @@ export default function Problem() {
             className="text-body mt-6 max-w-2xl"
             style={{ color: "var(--color-logo)" }}
           >
-            Gold mining operations regularly cap their own output. The problem is
-            not the land. It is preparation.
+            Gold mining operations regularly cap their own output. Poor
+            preparation is the reason.
           </p>
         </motion.div>
 
@@ -93,15 +93,13 @@ export default function Problem() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mt-14 max-w-3xl"
         >
-          <p
-            className="text-body"
-            style={{ color: "var(--color-logo)" }}
-          >
-            These are not small inefficiencies. A 10-degree slope error on a
-            gold washing machine cuts recovery by 50%. A single mechanical fault
-            during active work costs hundreds of thousands of birr per day.
-            These losses are invisible during setup, but they define whether
-            your operation survives.
+          <p className="text-body" style={{ color: "var(--color-logo)" }}>
+            These are not small inefficiencies. Gold mining is a cash-flow
+            intensive business. If a machine stops working for even a few hours,
+            it costs you hundreds of thousands of birr. If it stays down for
+            days, it can lead to bankruptcy. Cheap equipment is the most
+            expensive mistake you can make. The money you save at purchase gets
+            burned through breakdowns and downtime.
           </p>
 
           <p
