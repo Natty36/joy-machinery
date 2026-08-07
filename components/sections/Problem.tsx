@@ -32,7 +32,7 @@ export default function Problem() {
       className="bg-section-dark overflow-hidden"
       style={{ paddingTop: "var(--spacing-section)", paddingBottom: "var(--spacing-section)" }}
     >
-      <div className="mx-auto max-w-6xl px-6 md:px-12">
+      <div className="mx-auto max-w-8xl px-6 md:px-12">
         {/* Headline */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
