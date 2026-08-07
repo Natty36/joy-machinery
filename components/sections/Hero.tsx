@@ -71,9 +71,9 @@ export default function Hero() {
           paddingBottom: "var(--spacing-section)",
         }}
       >
-        <div className="mx-auto grid w-full max-w-9xl items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="mx-auto grid w-full max-w-9xl items-center gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-6">
           {/* Left: Social Bar + Text */}
-          <div className="flex items-center gap-6 lg:gap-8">
+          <div className="flex items-center gap-6 lg:gap-6 lg:pl-2 xl:pl-6">
             {/* Vertical Social Bar */}
             <div className="hidden flex-col items-center gap-9 self-center lg:-ml-9 lg:flex">
               {socialLinks.map((link) => (
@@ -127,7 +127,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-[350px] w-full md:h-[450px] lg:h-[500px]"
+            className="relative h-87.5 w-full md:h-112.5 lg:h-118"
           >
             <Hero3D />
           </motion.div>

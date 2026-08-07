@@ -29,8 +29,9 @@ const itemVariants = {
 export default function Problem() {
   return (
     <section
-      className="bg-section-dark overflow-hidden"
-      style={{ paddingTop: "var(--spacing-section)", paddingBottom: "var(--spacing-section)" }}
+      id="problem"
+      className="bg-section-light overflow-hidden pt-10"
+      style={{ paddingBottom: "var(--spacing-section)" }}
     >
       <div className="mx-auto max-w-8xl px-6 md:px-12">
         {/* Headline */}
@@ -42,14 +43,14 @@ export default function Problem() {
         >
           <h2
             className="text-h1 headline max-w-3xl"
-            style={{ color: "var(--color-light)" }}
+            style={{ color: "var(--color-dark)" }}
           >
             Most losses happen before extraction starts
           </h2>
 
           <p
             className="text-body mt-6 max-w-2xl"
-            style={{ color: "var(--color-light)", opacity: 0.85 }}
+            style={{ color: "var(--color-logo)" }}
           >
             Gold mining operations regularly cap their own output. The problem is
             not the land. It is preparation.
@@ -70,13 +71,13 @@ export default function Problem() {
               variants={itemVariants}
               className="relative p-6 md:p-8"
               style={{
-                backgroundColor: "rgba(241, 247, 237, 0.04)",
+                backgroundColor: "rgba(20, 19, 19, 0.03)",
                 borderLeft: "2px solid var(--color-accent)",
               }}
             >
               <p
                 className="text-body-sm font-headline font-medium"
-                style={{ color: "var(--color-light)", lineHeight: 1.6 }}
+                style={{ color: "var(--color-dark)", lineHeight: 1.6 }}
               >
                 {text}
               </p>
@@ -94,7 +95,7 @@ export default function Problem() {
         >
           <p
             className="text-body"
-            style={{ color: "var(--color-light)", opacity: 0.85 }}
+            style={{ color: "var(--color-logo)" }}
           >
             These are not small inefficiencies. A 10-degree slope error on a
             gold washing machine cuts recovery by 50%. A single mechanical fault
@@ -105,7 +106,7 @@ export default function Problem() {
 
           <p
             className="text-h4 font-headline mt-8"
-            style={{ color: "var(--color-light)" }}
+            style={{ color: "var(--color-dark)" }}
           >
             When you start without the right study and without equipment built
             to specification, you are not running at capacity. You are burning
