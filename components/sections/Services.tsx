@@ -1,26 +1,31 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../../components/ui/Button";
 import { cn } from "../../lib/utils";
+import { PhoneCall } from "lucide-react";
 
 const services = [
   {
     id: "sampling",
     title: "Ground Sampling & Geological Site Assessment",
+    image: "/service-sampling.jpg",
     description:
       "Every successful mining operation starts before the first machine arrives. Our geologists conduct professional ground sampling and geological site assessments to evaluate your land and identify its mining potential. By understanding the site before you invest, you reduce unnecessary risk and avoid entering the business without the knowledge needed to maximize your operation.",
   },
   {
     id: "excavator",
     title: "Excavator Rentals",
+    image: "/service-excavator.jpg",
     description:
       "Excavation is one of the largest investments in a mining project. We provide reliable excavator rentals with flexible scheduling and prepayment options to match your operation. Whether you're planning a thousand or more working hours, our service helps keep your project moving without the delays and uncertainty of sourcing equipment from multiple providers.",
   },
   {
     id: "pumps",
     title: "High-Performance Water Pumps",
+    image: "/service-pumps.jpg",
     description: `Fuel costs directly affect your profits, which is why choosing the right water pump matters. Our mining pumps start from 90kW and are selected for their powerful water pressure, fuel efficiency, and dependable performance.
 
 Each pump is designed to:
@@ -34,6 +39,7 @@ The result is lower operating costs and fewer interruptions.`,
   {
     id: "cleaning",
     title: "Gold Cleaning Machines",
+    image: "/service-cleaning.jpg",
     description: `Gold recovery depends on precision. Even a small error in a cleaning machine's slope can significantly reduce recovery efficiency and lead to costly production losses.
 
 Our gold cleaning machines are engineered by qualified professionals and carefully calibrated to ensure optimal performance. Depending on the model, each machine combines a precision-built washing system and properly engineered slope with an integrated spring vibration system, working alongside water pressure to separate gold from soil more effectively.
@@ -43,6 +49,7 @@ For customers looking to start with a compact solution, our JA02 Gold Cleaning M
   {
     id: "accessories",
     title: "Mining Accessories & Complete Project Support",
+    image: "/service-accessories.jpg",
     description: `From pumps and fittings to essential mining accessories, we supply the equipment needed to keep your operation running efficiently. Instead of coordinating with multiple suppliers, you can source your mining equipment, geological services, excavator rentals, water pumps, gold washing machines, and supporting accessories from one trusted partner.
 
 When your equipment is built correctly and your site is studied properly, you stop leaving output in the ground.`,
@@ -88,115 +95,124 @@ export default function Services() {
         paddingBottom: "var(--spacing-section)",
       }}
     >
-      <div className="mx-auto px-6 md:px-12 lg:px-20">
+      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 max-w-3xl lg:mb-20"
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+          className="mb-12 max-w-3xl lg:mb-16"
         >
+          {/* Option 7 Style Minimal Tag */}
+          <div className="inline-block border border-[var(--color-dark)]/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--color-dark)]">
+            Services &amp; Solutions
+          </div>
+
           <h2
-            className="text-h1 headline"
+            className="text-h1 headline mt-4 text-3xl font-bold tracking-tight md:text-5xl"
             style={{ color: "var(--color-dark)" }}
           >
             Our services fix the problems before they cost you
           </h2>
           <p
-            className="text-body mt-6"
+            className="text-body mt-4 text-lg md:text-xl"
             style={{ color: "var(--color-logo)" }}
           >
-            We study your ground, select
-            the right machines for your site, calibrate them to specification,
-            and back every delivery with warranty and ongoing support.
+            We study your ground, select the right machines for your site, calibrate them to specification, and back every delivery with ongoing support.
           </p>
         </motion.div>
 
         {/* Main Grid */}
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12 items-start">
           {/* Tabs */}
-          <div className="flex flex-col gap-2 lg:col-span-4">
-            {services.map((service, index) => (
-              <button
-                key={service.id}
-                onClick={() => setActiveIndex(index)}
-                className={cn(
-                  "flex w-full items-center rounded-xl px-5 py-4 text-left font-headline font-semibold transition-all duration-200 lg:px-6 lg:py-5",
-                  activeIndex === index
-                    ? "bg-[var(--color-dark)] text-[var(--color-light)]"
-                    : "bg-[var(--color-dark)]/[0.03] text-[var(--color-logo)]/80 hover:bg-[var(--color-dark)]/[0.06]",
-                )}
-              >
-                <span
+          <div className="flex flex-col gap-2 lg:col-span-5 justify-start">
+            {services.map((service, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <button
+                  key={service.id}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onClick={() => setActiveIndex(index)}
                   className={cn(
-                    "mr-3 h-2 w-2 flex-shrink-0 rounded-full transition-colors",
-                    activeIndex === index
-                      ? "bg-[var(--color-accent)]"
-                      : "bg-transparent",
+                    "group relative flex w-full items-center justify-between rounded-2xl p-4 text-left transition-all duration-300 md:p-5",
+                    isActive
+                      ? "bg-white shadow-md border border-[var(--color-dark)]/10"
+                      : "border border-transparent hover:bg-white/50"
                   )}
-                />
-                <span className="text-sm leading-snug lg:text-base">
-                  {service.title}
-                </span>
-              </button>
-            ))}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={cn(
+                        "font-mono text-xs font-bold transition-colors",
+                        isActive
+                          ? "text-[var(--color-dark)]"
+                          : "text-[var(--color-logo)]/40 group-hover:text-[var(--color-dark)]"
+                      )}
+                    >
+                      0{index + 1}
+                    </span>
+                    <span
+                      className={cn(
+                        "text-sm font-semibold transition-colors md:text-base",
+                        isActive
+                          ? "text-[var(--color-dark)]"
+                          : "text-[var(--color-logo)] group-hover:text-[var(--color-dark)]"
+                      )}
+                    >
+                      {service.title}
+                    </span>
+                  </div>
+
+                  {/* Minimal Subtle Arrow Indicator */}
+                  <span
+                    className={cn(
+                      "text-xs transition-transform duration-300",
+                      isActive
+                        ? "translate-x-1 opacity-100 text-[var(--color-dark)]"
+                        : "opacity-0 group-hover:opacity-40"
+                    )}
+                  >
+                    →
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Content */}
-          <div className="lg:col-span-8">
+          {/* Content Area */}
+          <div className="lg:col-span-7">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
+                className="flex flex-col justify-start"
               >
-                {/* Image Placeholder */}
-                <div className="relative mb-8 aspect-[16/10] w-full overflow-hidden rounded-xl">
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, var(--color-accent) 0%, var(--color-dark) 100%)",
-                      opacity: 0.12,
-                    }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div
-                        className="mx-auto mb-3 h-14 w-14 rounded-full"
-                        style={{
-                          background:
-                            "linear-gradient(135deg, var(--color-accent) 0%, var(--color-dark) 100%)",
-                          opacity: 0.25,
-                        }}
+                <div>
+                  {/* Compact, Centered Transparent Image Wrapper */}
+                  <div className="mb-6 flex justify-center">
+                    <div className="relative w-48 md:w-56">
+                      <Image
+                        src={activeService.image}
+                        alt={activeService.title}
+                        width={522}
+                        height={478}
+                        className="h-auto w-full object-contain"
+                        priority
                       />
-                      <p
-                        className="text-caption font-headline font-medium"
-                        style={{ color: "var(--color-logo)" }}
-                      >
-                        {activeService.title}
-                      </p>
-                      <p
-                        className="text-small mt-1"
-                        style={{ color: "var(--color-logo)", opacity: 0.5 }}
-                      >
-                        Image placeholder
-                      </p>
                     </div>
                   </div>
-                </div>
 
-                {/* Description */}
-                <div className="max-w-2xl">
-                  {parseDescription(activeService.description).map(
-                    (block, i) =>
+                  {/* Description Blocks */}
+                  <div className="space-y-4 max-w-xl">
+                    {parseDescription(activeService.description).map((block, i) =>
                       block.type === "p" ? (
                         <p
                           key={i}
-                          className="text-body mb-5"
+                          className="text-base leading-relaxed md:text-lg"
                           style={{ color: "var(--color-logo)" }}
                         >
                           {block.content}
@@ -204,28 +220,29 @@ export default function Services() {
                       ) : (
                         <ul
                           key={i}
-                          className="mb-5 list-disc space-y-2 pl-6 text-body"
+                          className="list-disc space-y-2 pl-5 text-base md:text-lg"
                           style={{ color: "var(--color-logo)" }}
                         >
                           {block.content.map((item, j) => (
                             <li key={j}>{item}</li>
                           ))}
                         </ul>
-                      ),
-                  )}
+                      )
+                    )}
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-10 pt-6 md:mt-12 md:pt-8 border-t border-[var(--color-dark)]/5">
+                  <Button href="tel:+0000000000">
+                    <span className="flex items-center gap-2">
+                      <PhoneCall className="h-4 w-4" />
+                      <span>Call Joy Machinery Solutions</span>
+                    </span>
+                  </Button>
                 </div>
               </motion.div>
             </AnimatePresence>
-
-            {/* CTA */}
-            <div className="mt-10 lg:mt-12">
-              <Button href="tel:+0000000000">
-                <span className="flex items-center gap-3">
-                  <span>📞</span>
-                  <span>Call Joy Machinery Solutions</span>
-                </span>
-              </Button>
-            </div>
           </div>
         </div>
       </div>
