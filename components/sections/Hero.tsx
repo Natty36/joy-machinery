@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Hero3D from "../3d/Hero3D";
 import { ShimmerButton } from "../ui/shimmer-button";
+import JoyLogo from "../JoyLogo";
 
 const socialLinks = [
   {
@@ -91,14 +92,21 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Text */}
+            {/* Text Content */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
+              {/* Standalone Joy Logo */}
+              <div className="mb-2 h-10 w-24 flex items-center justify-start">
+                <JoyLogo
+              gearSize="w-[35%] h-[78%]"
+                />
+              </div>
+
               <h1
-                className="text-hero font-headline mt-4"
+                className="text-hero font-headline mt-2"
                 style={{ color: "var(--color-light)" }}
               >
                 Reliable mining equipment supplier
@@ -114,8 +122,8 @@ export default function Hero() {
               </p>
 
               <ShimmerButton 
-              background="#113a72"
-              onClick={() => {
+                background="#113a72"
+                onClick={() => {
                   window.location.href = "tel:+251936962486";
                 }}
                 className="mt-10"
