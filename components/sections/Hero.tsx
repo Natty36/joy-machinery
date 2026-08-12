@@ -53,7 +53,7 @@ export default function Hero() {
         alt="Gold mining equipment"
         fill
         priority
-        className="object-cover mt-2"
+        className="object-cover mt-2 md:mt-2"
         sizes="100vw"
       />
 

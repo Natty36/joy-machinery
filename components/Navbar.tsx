@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+/* --- Desktop Concave Wings --- */
 function ConcaveLeft() {
   return (
     <svg
@@ -39,13 +40,41 @@ function ConcaveRight() {
   );
 }
 
+/* --- Mobile Concave Wings --- */
+function ConcaveLeftMobile() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 20 20"
+      fill="none"
+      className="block text-[var(--color-light)] md:hidden -mr-[1px] pointer-events-none shrink-0"
+    >
+      <path d="M0 0 H20 V20 C20 9 11 0 0 0 Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function ConcaveRightMobile() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 20 20"
+      fill="none"
+      className="block text-[var(--color-light)] md:hidden -ml-[1px] pointer-events-none shrink-0"
+    >
+      <path d="M20 0 H0 V20 C0 9 9 0 20 0 Z" fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Toggle floating pill state when scrolled down more than 20px
       setScrolled(window.scrollY > 20);
     };
 
@@ -71,22 +100,27 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-2 left-1/2 z-50 flex w-[calc(100%-1rem)] -translate-x-1/2 items-start justify-center transition-all duration-300 md:w-auto ${
+      className={`fixed top-2 left-1/2 z-50 flex w-[calc(100%-5rem)] max-w-[280px] -translate-x-1/2 items-start justify-center transition-all duration-300 md:w-auto md:max-w-none ${
         scrolled ? "top-4" : "top-0"
       }`}
     >
       {/* 1. Show Concave SVG wings ONLY when at the top */}
-      {!scrolled && <ConcaveLeft />}
+      {!scrolled && (
+        <>
+          <ConcaveLeftMobile />
+          <ConcaveLeft />
+        </>
+      )}
 
       {/* 2. Main Navbar Container */}
       <div
         className={`w-full px-3 py-1.5 transition-all duration-300 md:w-auto ${
           scrolled
             ? "rounded-full border border-[var(--color-dark)]/10 bg-[var(--color-light)]/80 shadow-xl backdrop-blur-xl"
-            : "rounded-b-3xl bg-[var(--color-light)] shadow-none backdrop-blur-none pt-8"
+            : "rounded-b-4xl md:rounded-b-3xl bg-[var(--color-light)] shadow-none backdrop-blur-none pt-4 md:pt-8"
         }`}
       >
-        <div className="flex items-center gap-2 md:gap-20">
+        <div className="flex items-center justify-between gap-2 md:gap-20">
           <a
             href="#hero"
             onClick={(e) => {
@@ -139,21 +173,26 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen((value) => !value)}
-            className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-dark)]/10 bg-[var(--color-accent)] text-[var(--color-dark)] transition-colors hover:bg-[var(--color-dark)]/10 md:hidden"
+            className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-dark)]/10 bg-[var(--color-accent)] text-white transition-colors hover:bg-[var(--color-dark)]/10 md:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? (
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 text-white" />
             ) : (
-              <Menu className="h-5 w-5" />
+              <Menu className="h-5 w-5 text-white" />
             )}
           </button>
         </div>
       </div>
 
       {/* 3. Show Concave SVG wings ONLY when at the top */}
-      {!scrolled && <ConcaveRight />}
+      {!scrolled && (
+        <>
+          <ConcaveRightMobile />
+          <ConcaveRight />
+        </>
+      )}
 
       {/* Mobile Dropdown Menu */}
       <div
@@ -184,9 +223,9 @@ export default function Navbar() {
               e.preventDefault();
               scrollToSection("#services");
             }}
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#113a72] px-4 py-3 text-sm font-semibold text-black transition-all hover:scale-[1.02] active:scale-95"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#113a72] px-4 py-3 text-sm font-semibold text-white transition-all hover:scale-[1.02] active:scale-95"
           >
-            <PhoneCall className="h-4 w-4" />
+            <PhoneCall className="h-4 w-4 text-white" />
             Call us
           </a>
         </div>

@@ -8,18 +8,21 @@ interface ButtonProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function Button({ href, children, className }: ButtonProps) {
+export default function Button({ href, children, className, style }: ButtonProps) {
   return (
     <motion.a
       href={href}
+      style={style}
       className={cn(
         "relative inline-flex items-center justify-center",
         "font-headline font-semibold text-base",
         "px-8 py-4",
         "rounded-full",
         "group",
+        "text-white", // Ensures default text color is white
         className
       )}
     >
@@ -38,8 +41,8 @@ export default function Button({ href, children, className }: ButtonProps) {
       <span
         className={cn(
           "absolute inset-0",
-          "border-[1.5px] border-[var(--color-accent)] text-[var(--color-light)]",
-          "bg-[var(--color-accent)]",
+          "border-[1.5px] border-[var(--color-accent)]",
+          "bg-[var(--color-accent)] text-white", // Force white text color
           "rounded-full",
           "group-hover:-translate-x-1.5 group-hover:-translate-y-1.5",
           "group-active:translate-x-0 group-active:translate-y-0",
@@ -61,13 +64,18 @@ export default function Button({ href, children, className }: ButtonProps) {
           glareSize={300}
           transitionDuration={800}
           playOnce={false}
+          className="flex items-center justify-center gap-2 text-white fill-white stroke-white [&_svg]:fill-white [&_svg]:stroke-white"
         >
-          {children}
+          <span className="flex items-center justify-center gap-2 text-white [&_svg]:fill-white [&_svg]:stroke-white">
+            {children}
+          </span>
         </GlareHover>
       </span>
 
       {/* 3. HIDDEN STRUCTURAL TEXT */}
-      <span className="invisible pointer-events-none">{children}</span>
+      <span className="invisible pointer-events-none flex items-center gap-2">
+        {children}
+      </span>
     </motion.a>
   );
 }

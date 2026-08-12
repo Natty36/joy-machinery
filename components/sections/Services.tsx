@@ -89,6 +89,7 @@ export default function Services() {
 
   return (
     <section
+    id="services"
       className="bg-section-light overflow-hidden"
       style={{
         paddingTop: "var(--spacing-section)",
