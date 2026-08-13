@@ -49,7 +49,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-[115vh] overflow-hidden">
       <Image
-        src="/herobg.png"
+        src="/herobg.webp"
         alt="Gold mining equipment"
         fill
         priority
