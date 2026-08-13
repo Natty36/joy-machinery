@@ -41,7 +41,7 @@ export default function Footer() {
           </p>
           <div className="pt-2 space-y-2 text-xs font-medium text-neutral-700">
             <a
-              href="tel:+0000000000"
+              href="tel:+251936962486"
               className="flex items-center gap-2.5 transition-colors"
               style={{ color: "var(--color-neutral-700, inherit)" }}
               onMouseEnter={(e) =>
@@ -53,7 +53,7 @@ export default function Footer() {
                 className="h-4 w-4 shrink-0"
                 style={{ color: "var(--color-accent)" }}
               />
-              <span>+000 000 0000</span>
+              <span>+251 936 962 486</span>
             </a>
             <div className="flex items-center gap-2.5">
               <Mail
@@ -73,10 +73,10 @@ export default function Footer() {
         </div>
 
         {/* CENTER COLUMN: Scaled Up Logo Container */}
-        <div className="lg:col-span-4 flex justify-center items-center py-4 lg:py-0">
+        <div className="lg:col-span-4 flex justify-center items-center py-4 -ml-6 lg:py-0 md:-ml-0">
           <JoyLogoWithText
             className="h-36 md:h-48 lg:h-56 w-full max-w-sm md:max-w-md -translate-x-1"
-            gearSize="w-[35%] h-[78%]"
+            gearSize="w-[28%] sm:w-[35%] h-[78%]"
             priority
           />
         </div>
@@ -156,7 +156,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+0000000000"
+                  href="tel:+251936962486"
                   className="inline-flex items-center gap-1 font-semibold hover:underline transition-colors"
                   style={{ color: "var(--color-accent)" }}
                   onMouseEnter={(e) =>
